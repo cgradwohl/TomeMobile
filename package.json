@@ -1,5 +1,5 @@
 {
-  "name": "TomeMobile",
+  "name": "tome-mobile",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,16 +10,21 @@
     "eslint": "$(npm bin)/eslint"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.5.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.7",
     "mobx-state-tree": "^3.16.0",
     "react": "16.11.0",
-    "react-native": "0.62.2"
+    "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.3",
+    "react-native-screens": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
-    "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
