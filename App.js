@@ -41,9 +41,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Header
-        leftComponent={{ icon: 'menu', color: 'green' }}
-        centerComponent={{ text: 'MY TITLE', style: { color: 'green' } }}
-        rightComponent={{ icon: 'home', color: 'green' }}
+        backgroundColor="black"
+        centerComponent={{ text: 'Tome.', style: { color: 'white' } }}
+        rightComponent={{ icon: 'menu', color: 'white' }}
       />
       <Router />
     </NavigationContainer>
