@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "$(npm bin)/react-native start",
     "test": "jest",
     "eslint": "$(npm bin)/eslint"
   },
@@ -18,10 +18,12 @@
     "mobx-state-tree": "^3.16.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-elements": "^2.0.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.3",
-    "react-native-screens": "^2.8.0"
+    "react-native-screens": "^2.8.0",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
