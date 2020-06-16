@@ -13,17 +13,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const LibraryScreen = ({ navigation }) => (
-  <SafeAreaView
-    style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-  >
-    <Text>Library Screen</Text>
-    <Button
-      title="Go To Splash"
-      onPress={() => navigation.navigate("Splash")}
-    />
-  </SafeAreaView>
-);
+const LibraryScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView
+      style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    >
+      <Text>Library Screen</Text>
+      <Button
+        title="Go To Splash"
+        onPress={() => navigation.navigate("Splash")}
+      />
+    </SafeAreaView>
+  );
+};
 
 const TomeScreen = () => (
   <SafeAreaView
@@ -41,11 +43,19 @@ const QueueScreen = () => (
   </SafeAreaView>
 );
 
-const Splash = () => (
-  <SafeAreaView>
-    <Text>Splash</Text>
-  </SafeAreaView>
-);
+const Splash = ({ navigation }) => {
+  const load = () =>
+    new Promise((resolve) => setTimeout(() => resolve(true), 2000));
+
+  // TODO: move this to MST
+  load().then(() => navigation.navigate("AppNavigator"));
+
+  return (
+    <SafeAreaView>
+      <Text>Splash</Text>
+    </SafeAreaView>
+  );
+};
 
 const Register = () => (
   <SafeAreaView>
