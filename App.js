@@ -1,35 +1,35 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
-import { SafeAreaView, Text } from "react-native";
+import React, { useState } from 'react';
+import { SafeAreaView, Text } from 'react-native';
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { Button, Header, Overlay } from "react-native-elements";
+import { Button, Header, Overlay } from 'react-native-elements';
 
-import Icon from "react-native-vector-icons/Ionicons";
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import Application from './stores/Application';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const LibraryScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView
-      style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-    >
-      <Text>Library Screen</Text>
-      <Button
-        title="Go To Splash"
-        onPress={() => navigation.navigate("Splash")}
-      />
-    </SafeAreaView>
-  );
-};
+const LibraryScreen = ({ navigation }) => (
+  <SafeAreaView
+    style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+  >
+    <Text>Library Screen</Text>
+    <Button
+      title="Go To Splash"
+      onPress={() => navigation.navigate('Splash')}
+    />
+  </SafeAreaView>
+);
 
 const TomeScreen = () => (
   <SafeAreaView
-    style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
   >
     <Text>Tome Screen</Text>
   </SafeAreaView>
@@ -37,18 +37,14 @@ const TomeScreen = () => (
 
 const QueueScreen = () => (
   <SafeAreaView
-    style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
   >
     <Text>Queue Screen</Text>
   </SafeAreaView>
 );
 
 const Splash = ({ navigation }) => {
-  const load = () =>
-    new Promise((resolve) => setTimeout(() => resolve(true), 2000));
-
-  // TODO: move this to MST
-  load().then(() => navigation.navigate("AppNavigator"));
+  Application.load().then(() => navigation.navigate('AppNavigator'));
 
   return (
     <SafeAreaView>
@@ -78,8 +74,8 @@ const ForgotPassword = () => (
 const AppNavigator = () => (
   <Tab.Navigator
     tabBarOptions={{
-      activeTintColor: "black",
-      inactiveTintColor: "gray",
+      activeTintColor: 'black',
+      inactiveTintColor: 'gray',
     }}
   >
     <Tab.Screen name="Library" component={LibraryScreen} />
@@ -110,19 +106,19 @@ export default function App() {
       isVisible={active}
       onBackdropPress={() => setActive(!active)}
       overlayStyle={{
-        width: "80%",
-        height: "75%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
+        width: '80%',
+        height: '75%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
       }}
     >
       <>
         <Text>Settings Menu!</Text>
         <Button
           buttonStyle={{
-            backgroundColor: "black",
-            color: "white",
+            backgroundColor: 'black',
+            color: 'white',
           }}
           title="Log Out"
         />
@@ -133,7 +129,7 @@ export default function App() {
   const SettingsMenuButton = () => (
     <Button
       buttonStyle={{
-        backgroundColor: "black",
+        backgroundColor: 'black',
       }}
       icon={<Icon color="white" name="ios-menu" size={20} />}
       onPress={() => setActive(!active)}
@@ -144,7 +140,7 @@ export default function App() {
     <NavigationContainer>
       <Header
         backgroundColor="black"
-        centerComponent={{ text: "Tome.", style: { color: "white" } }}
+        centerComponent={{ text: 'Tome.', style: { color: 'white' } }}
         rightComponent={<SettingsMenuButton />}
       />
       <SettingsMenu />
