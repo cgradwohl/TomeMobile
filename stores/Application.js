@@ -1,5 +1,12 @@
-import { types, flow, addMiddleware, onSnapshot } from "mobx-state-tree";
+import {
+  types,
+  flow,
+  addMiddleware,
+  onSnapshot,
+} from 'mobx-state-tree';
 
-const Application = types.model("Application", {
-  loading: types.boolean,
-});
+const Application = types.model('Application',
+  {
+    loading: types.boolean,
+  },
+);

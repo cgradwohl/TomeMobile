@@ -21,5 +21,8 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "react/jsx-filename-extension": 0,
+    "function-paren-newline": 0,
+    "comma-dangle": "error",
+    "tabSize": 2
   },
 };
