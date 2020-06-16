@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
   SafeAreaView,
@@ -6,6 +7,7 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import {
   Button,
@@ -16,10 +18,12 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-const LibraryScreen = () => (
+const LibraryScreen = ({ navigation }) => (
   <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Text>Library Screen</Text>
+    <Button title="Go To Splash" onPress={() => navigation.navigate('Splash')} />
   </SafeAreaView>
 );
 
@@ -35,7 +39,7 @@ const QueueScreen = () => (
   </SafeAreaView>
 );
 
-const Router = () => (
+const TabNavigator = () => (
   <Tab.Navigator
     tabBarOptions={{
       activeTintColor: 'black',
@@ -46,6 +50,42 @@ const Router = () => (
     <Tab.Screen name="Tome" component={TomeScreen} />
     <Tab.Screen name="Queue" component={QueueScreen} />
   </Tab.Navigator>
+);
+
+const Splash = () => (
+  <SafeAreaView>
+    <Text>Splash</Text>
+  </SafeAreaView>
+);
+
+const Register = () => (
+  <SafeAreaView>
+    <Text>Register</Text>
+  </SafeAreaView>
+);
+
+const Login = () => (
+  <SafeAreaView>
+    <Text>Register</Text>
+  </SafeAreaView>
+);
+
+const ForgotPassword = () => (
+  <SafeAreaView>
+    <Text>ForgotPassword</Text>
+  </SafeAreaView>
+);
+
+const AppNavigator = () => <TabNavigator />;
+
+const Router = () => (
+  <Stack.Navigator initialRouteName="AppNavigator">
+    <Stack.Screen name="Splash" component={Splash} />
+    <Stack.Screen name="Register" component={Register} />
+    <Stack.Screen name="Login" component={Login} />
+    <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+    <Stack.Screen name="AppNavigator" component={AppNavigator} options={{ headerShown: false }} />
+  </Stack.Navigator>
 );
 
 export default function App() {
