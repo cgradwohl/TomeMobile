@@ -4,8 +4,9 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
+    'plugin:react/recommended',
+    'prettier'
   ],
   globals: {
     Atomics: 'readonly',
@@ -20,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'prettier'
   ],
   rules: {
     'react/jsx-filename-extension': 0
