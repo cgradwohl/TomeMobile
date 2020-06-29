@@ -10,7 +10,14 @@ import { Button, Header, Overlay } from 'react-native-elements';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Amplify from 'aws-amplify';
+
+import { withAuthenticator } from 'aws-amplify-react-native';
+import Config from './Config';
+
 import Application from './stores/Application';
+
+Amplify.configure(Config.cognito);
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -98,7 +105,7 @@ const Router = () => (
   </Stack.Navigator>
 );
 
-export default function App() {
+function App() {
   const [active, setActive] = useState(false);
 
   const SettingsMenu = () => (
@@ -148,3 +155,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+export default withAuthenticator(App);
