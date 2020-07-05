@@ -17,6 +17,7 @@ import Config from './Config';
 
 import Application from './stores/Application';
 
+console.log('YO\n\n', Config.cognito);
 Amplify.configure(Config.cognito);
 
 const Tab = createBottomTabNavigator();
